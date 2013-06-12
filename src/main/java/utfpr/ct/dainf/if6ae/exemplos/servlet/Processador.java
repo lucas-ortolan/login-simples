@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Universidade Tecnológica Federal do Paraná
- * IF6AE Desenvolvimento de Aplicaçoões Web
+ * Universidade Tecnológica Federal do Paraná IF6AE Desenvolvimento de
+ * Aplicaçoões Web
+ *
  * @author Wilson Horstmeyer Bogado <wilson@utfpr.edu.br>
  */
 @WebServlet(name = "Processador", urlPatterns = {"/processador"})
@@ -35,29 +36,16 @@ public class Processador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" "
-                    + "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Modelo de Servlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Modelo de Servlet em " + request.getContextPath() + "</h1>");
-            out.println("<form action='modelo' method='post'>");
-            out.println("Nome: <input type='text' name='nome'/><br/>");
-            out.println("<input type='submit' value='Enviar'/><br/>");
-            out.println("</form>");
             String nome = request.getParameter("nome");
-            if  (request.getMethod().equalsIgnoreCase("post")) {
-                if (nome == null || nome.trim().isEmpty()) {
-                    out.println("<h2 style='color: red'>Informe o nome!</h2>");
+            String senha = request.getParameter("senha");
+            if (request.getMethod().equalsIgnoreCase("post")) {
+                if (nome.trim().equals("admin") && senha.trim().equals("admin")) {
+                    //redirecionar pra página logada
                 } else {
-                    out.println("<h2>Olá, " + nome + "</h2>");
+                    //redirecionar pra essa mesma página
                 }
             }
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -75,7 +63,7 @@ public class Processador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**
