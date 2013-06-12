@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Meu primeiro servlet</title>
+        <title>Logar</title>
     </head>
     <body>
-        <h1>Olá, mundo!</h1>
+        <h1>Logue <a href="login.xhtml">aqui!</a></h1>
     </body>
 </html>

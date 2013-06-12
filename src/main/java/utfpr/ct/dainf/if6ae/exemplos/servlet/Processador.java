@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  * IF6AE Desenvolvimento de Aplicaçoões Web
  * @author Wilson Horstmeyer Bogado <wilson@utfpr.edu.br>
  */
-@WebServlet(name = "Modelo", urlPatterns = {"/modelo", "/xyz"})
-public class Modelo extends HttpServlet {
+@WebServlet(name = "Processador", urlPatterns = {"/processador"})
+public class Processador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
