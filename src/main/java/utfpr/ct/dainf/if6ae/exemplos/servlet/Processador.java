@@ -40,10 +40,12 @@ public class Processador extends HttpServlet {
             String senha = request.getParameter("senha");
             if (request.getMethod().equalsIgnoreCase("post")) {
                 if (nome.trim().equals("admin") && senha.trim().equals("admin")) {
-                    //redirecionar pra página logada
+                    response.sendRedirect(response.encodeRedirectURL("/login-simples/logado.xhtml"));
                 } else {
-                    //redirecionar pra essa mesma página
+                    response.sendRedirect(response.encodeRedirectURL("/login-simples/login.xhtml"));
                 }
+            } else if (request.getMethod().equalsIgnoreCase("get")) {
+                response.sendError(response.SC_METHOD_NOT_ALLOWED);
             }
         } finally {
             out.close();
@@ -63,7 +65,6 @@ public class Processador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
     }
 
     /**
